@@ -1,6 +1,8 @@
 #ifndef __FUNCTIONS__
 #define __FUNCTIONS__
 
-char *func_s(char *input, char *output);
+int func_c(void *input);
+int func_s(void *input);
+int func_i(void *input);
 
 #endif

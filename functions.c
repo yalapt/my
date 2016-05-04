@@ -1,14 +1,19 @@
 #include "libmy.h"
 
-char *func_s(char *input, char *output)
+int func_c(void *input)
 {
-  char *formated;
-  my_putstr("you will segfault");
-  formated = malloc((my_strlen(input) + my_strlen(output)) * sizeof(char));
-  formated[0] = '\0';
-  formated = my_strcat(formated, input);
-  formated = my_strcat(formated, output);
-	
-	my_putstr("tototo");
-  return (formated);
+	my_putchar((long) input);
+	return (1);
+}
+
+int func_s(void *input)
+{
+	my_putstr((char *) input);
+	return (my_strlen((char *) input));
+}
+
+int func_i(void *input)
+{
+	my_put_nbr((long) input);
+	return ((long) input);
 }

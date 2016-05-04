@@ -1,13 +1,6 @@
 #include "libmy.h"
 #include "functions.h"
 
-int (*myprintfuncs[150]) (void *input);
-
-myprintfuncs['c'] = &func_c;
-myprintfuncs['s'] = &func_s;
-myprintfuncs['i'] = &func_i;
-myprintfuncs['d'] = &func_i;
-
 int check_char(char c)
 {
 	int i;
@@ -29,9 +22,15 @@ int check_char(char c)
 int my_printf(char *pattern, ...){
 	int i;
 	int length;
+	int (*funcs[150]) (void *input);
 
 	va_list list;
 	va_start(list, pattern);
+
+	funcs['c'] = &func_c;
+	funcs['s'] = &func_s;
+	funcs['i'] = &func_i;
+	funcs['d'] = &func_i;
 
 	i = 0;
 	length = my_strlen(pattern);
@@ -42,15 +41,15 @@ int my_printf(char *pattern, ...){
 			i++;	
 			if (check_char(pattern[i]) == 1)
 			{
-				myprintfuncs[pattern[i]](va_arg(list, void *));
+				funcs[pattern[i]](va_arg(list, void *));
 			}
 			else
 			{
-				myprintfuncs['c'](pattern[i]);
+				funcs['c'](pattern[i]);
 			}
 		}
 		else{
-			myprintfuncs['c'](pattern[i]);
+			funcs['c'](pattern[i]);
 		}
 	}
 	va_end(list);

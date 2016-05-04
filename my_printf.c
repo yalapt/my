@@ -6,7 +6,7 @@ int number_len(int i)
 	if (i < 10)
 		return (1);
 	else
-		return (my_numlen(i / 10) + 1));
+		return (my_numlen(i / 10) + 1);
 }
 
 int check_char(char c)

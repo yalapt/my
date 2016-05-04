@@ -1,6 +1,14 @@
 #include "libmy.h"
 #include "functions.h"
 
+int number_len(int i)
+{
+	if (i < 10)
+		return (1);
+	else
+		return (my_numlen(n / 10) + 1));
+}
+
 int check_char(char c)
 {
 	int i;
@@ -8,7 +16,7 @@ int check_char(char c)
 	char *chars;
 	
 	i = valid = 0;
-	chars = "csid";
+	chars = "csiduo";
 	while (chars[i] != '\0')
 	{
 		if (c == chars[i])
@@ -30,6 +38,8 @@ int my_printf(char *pattern, ...){
 	funcs['s'] = &func_s;
 	funcs['i'] = &func_i;
 	funcs['d'] = &func_i;
+	funcs['u'] = &func_u;
+	funcs['o'] = &func_o;
 
 	i = 0;
 	length = my_strlen(pattern);
@@ -56,5 +66,10 @@ int main()
 	my_printf("2 - %s\n", "une autre chaine");
 	my_printf("3 - %i\n", 42);
 	my_printf("4 - %s %d %s%c", "avec", 4, "parametres", '\n');
+	
+	my_printf("1 - %o\n", 42);
+	my_printf("2 - %u\n", 4200000000);
+	my_printf("5 - %d%%\n", 42);
+	
 	return (0);
 }

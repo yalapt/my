@@ -63,7 +63,7 @@ void my_printf(char *pattern, ...){
 					my_putchar((long) va_arg(list, void*));
 					break;
 				case 's' :
-					my_putstr((long) va_arg(list, void*));
+					my_putstr((char*) va_arg(list, void*));
 					break;
 				case 'i' :
 					my_put_nbr((long) va_arg(list, void*));
@@ -91,6 +91,9 @@ void my_printf(char *pattern, ...){
 
 int main()
 {
-  my_printf("2 - %s\n", "une autre chaine");
-  return (0);
+	my_printf("1 - une chaine\n");
+	my_printf("2 - %s\n", "une autre chaine");
+	my_printf("3 - %i\n", 42);
+	my_printf("4 - %s %d %s%c", "avec", 4, "parametres", '\n');
+	return (0);
 }

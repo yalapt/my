@@ -60,22 +60,22 @@ void my_printf(char *pattern, ...){
 			i++;
 			switch (pattern[i]) {
 				case 'c' :
-					my_putchar((char) va_arg(list, void*));
+					my_putchar((char) *(va_arg(list, void*)));
 					break;
 				case 's' :
-					my_putstr((char*) va_arg(list, void*));
+					my_putstr((char*) *(va_arg(list, void*)));
 					break;
 				case 'i' :
-					my_put_nbr((int) va_arg(list, void*));
+					my_put_nbr((int) *(va_arg(list, void*)));
 					break;
 				case 'd' :
-					my_put_nbr((int) va_arg(list, void*));
+					my_put_nbr((int) *(va_arg(list, void*)));
 					break;
 				case 'f' :
-					my_put_nbr((float) va_arg(list, void*));
+					my_put_nbr((float) *(va_arg(list, void*)));
 					break;
 				case 'e' :
-					my_put_nbr((double) va_arg(list, void*));
+					my_put_nbr((double) *(va_arg(list, void*)));
 					break;
 				case '%' :
 					my_putchar('%');

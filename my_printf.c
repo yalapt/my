@@ -12,9 +12,8 @@ int check_char(char c)
 	while (chars[i] != '\0')
 	{
 		if (c == chars[i])
-		{
 			valid = 1;
-		}	
+		i++;
 	}
 	return valid;
 }

@@ -40,17 +40,12 @@ int my_printf(char *pattern, ...){
 		{
 			i++;	
 			if (check_char(pattern[i]) == 1)
-			{
-				funcs[pattern[i]](va_arg(list, void *));
-			}
+				funcs[(int) pattern[i]](va_arg(list, void *));
 			else
-			{
 				my_putchar(pattern[i]);
-			}
 		}
-		else{
+		else
 			my_putchar(pattern[i]);
-		}
 	}
 	va_end(list);
 	return (0);

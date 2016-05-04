@@ -23,14 +23,14 @@ char **functions()
 {
 	char **funcs;
 
-	funcs = malloc(10 * sizeof(char **));
-	funcs['c'] = malloc(sizeof(&func_c));
+	funcs = malloc(123 * sizeof(int *(void *)));
+	//funcs['c'] = malloc(sizeof(&func_c));
 	funcs['c'] = &func_c;
-	funcs['s'] = malloc(sizeof(&func_s));
+	//funcs['s'] = malloc(sizeof(&func_s));
 	funcs['s'] = &func_s;
-	funcs['i'] = malloc(sizeof(&func_i));
+	//funcs['i'] = malloc(sizeof(&func_i));
 	funcs['i'] = &func_i;
-	funcs['d'] = malloc(sizeof(&func_i));
+	//funcs['d'] = malloc(sizeof(&func_i));
 	funcs['d'] = &func_i;
 	return funcs;
 }

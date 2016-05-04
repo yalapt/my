@@ -1,4 +1,5 @@
 #include "libmy.h"
+#include "my_printf.h"
 
 int func_c(void *input)
 {
@@ -38,7 +39,7 @@ int func_o(void *input)
 	{
 		base = (o % 8);
 		o = (o / 8);
-		octal = (octal (base * i));
+		octal = (octal + (base * i));
 		i = (i * 10);
 	}
 	my_put_nbr(octal);

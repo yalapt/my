@@ -1,6 +1,13 @@
 #include "libmy.h"
 #include "functions.h"
 
+int (*funcs[150]) (void *x);
+
+funcs['c'] = &func_c;
+funcs['s'] = &func_s;
+funcs['i'] = &func_i;
+funcs['d'] = &func_i;
+
 int check_char(char c)
 {
 	int i;
@@ -19,22 +26,9 @@ int check_char(char c)
 	return valid;
 }
 
-char **functions()
-{
-	char **funcs;
-
-	funcs = malloc(123 * sizeof(int *(void *)));
-	funcs['c'] = &func_c;
-	funcs['s'] = &func_s;
-	funcs['i'] = &func_i;
-	funcs['d'] = &func_i;
-	return funcs;
-}
-
 int my_printf(char *pattern, ...){
 	int i;
 	int length;
-	char **funcs;
 	
 	va_list list;
 	va_start(list, pattern);
@@ -49,7 +43,7 @@ int my_printf(char *pattern, ...){
 			i++;	
 			if (check_char(pattern[i]) == i)
 			{
-				funcs[pattern[i]](va_arg(list, void*));
+				funcs[pattern[i]](va_arg(list, void *));
 			}
 			else
 			{

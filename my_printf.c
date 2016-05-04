@@ -45,11 +45,11 @@ int my_printf(char *pattern, ...){
 			}
 			else
 			{
-				funcs['c'](pattern[i]);
+				my_putchar(pattern[i]);
 			}
 		}
 		else{
-			funcs['c'](pattern[i]);
+			my_putchar(pattern[i]);
 		}
 	}
 	va_end(list);

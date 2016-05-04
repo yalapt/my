@@ -30,7 +30,7 @@ char **functions()
 	funcs['s'] = &func_s;
 	funcs['i'] = malloc(sizeof(&func_i));
 	funcs['i'] = &func_i;
-	funcs['d'] = malloc(sizeof(&func_d));
+	funcs['d'] = malloc(sizeof(&func_i));
 	funcs['d'] = &func_i;
 	return funcs;
 }

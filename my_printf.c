@@ -1,7 +1,7 @@
 #include "libmy.h"
 #include "functions.h"
 
-int (*funcs[150]) (void *x);
+int (*funcs[150]) (void *input);
 
 funcs['c'] = &func_c;
 funcs['s'] = &func_s;
@@ -29,19 +29,18 @@ int check_char(char c)
 int my_printf(char *pattern, ...){
 	int i;
 	int length;
-	
+
 	va_list list;
 	va_start(list, pattern);
-	
+
 	i = 0;
 	length = my_strlen(pattern);
-	funcs = functions();	
 	for (i = 0; i < length; i++)
 	{
 		if (pattern[i] == '%')
 		{
 			i++;	
-			if (check_char(pattern[i]) == i)
+			if (check_char(pattern[i]) == 1)
 			{
 				funcs[pattern[i]](va_arg(list, void *));
 			}

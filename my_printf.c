@@ -66,16 +66,16 @@ void my_printf(char *pattern, ...){
 					my_putstr(va_arg(list, char*));
 					break;
 				case 'i' :
-					my_putnbr(va_arg(list, int));
+					my_put_nbr(va_arg(list, int));
 					break;
 				case 'd' :
-					my_putnbr(va_arg(list, int));
+					my_put_nbr(va_arg(list, int));
 					break;
 				case 'f' :
-					my_putnbr(va_arg(list, float));
+					my_put_nbr(va_arg(list, float));
 					break;
 				case 'e' :
-					my_putnbr(va_arg(list, double));
+					my_put_nbr(va_arg(list, double));
 					break;
 				case '%' :
 					my_putchar('%');

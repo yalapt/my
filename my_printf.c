@@ -2,6 +2,8 @@
 #include "utils.h"
 #include "functions.h"
 
+/*
+
 void add_functions(t_list **list)
 {
   t_list *tmp;
@@ -38,6 +40,53 @@ int my_printf(char *input, char *output)
   formated = format(&list, input, output);
   my_putstr(formated);
   return (0);
+}
+
+*/
+
+void my_printf(char *pattern, ...){
+	
+	int i;
+	int length;
+	
+	va_list list;
+	va_start(list, pattern);
+	
+	i = 0;
+	length = my_strlen(pattern);
+		
+	for (i = 0; i < length; i++) {
+		if (pattern[i] == '%') {
+			i++;
+			switch (pattern[i]) {
+				case 'c' :
+					my_putchar(va_arg(list, char));
+					break;
+				case 's' :
+					my_putstr(va_arg(list, char*));
+					break;
+				case 'i' :
+					my_putnbr(va_arg(list, int));
+					break;
+				case 'd' :
+					my_putnbr(va_arg(list, int));
+					break;
+				case 'f' :
+					my_putnbr(va_arg(list, float));
+					break;
+				case 'e' :
+					my_putnbr(va_arg(list, double));
+					break;
+				case '%' :
+					my_putchar('%');
+					break;
+			}
+		}
+		else{
+			my_putchar(pattern[i]);
+		}
+	}
+	va_end(list);
 }
 
 int main()

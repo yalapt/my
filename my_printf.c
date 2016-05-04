@@ -23,7 +23,7 @@ char **functions()
 {
 	char **funcs;
 
-	funcs = malloc(sizeof(funcs) / sizeof(*char));
+	funcs = malloc(150 * sizeof(*(func_c)));
 	funcs['c'] = &func_c;
 	funcs['s'] = &func_s;
 	funcs['i'] = &func_i;

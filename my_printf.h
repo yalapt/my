@@ -3,6 +3,6 @@
 
 int check_char(char c);
 char **add_functions();
-void my_printf(char *pattern, ...);
+int my_printf(char *pattern, ...);
 
 #endif
